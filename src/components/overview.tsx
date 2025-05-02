@@ -94,7 +94,7 @@ export default function OverviewPage() {
   ];
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 mx-5">
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {metrics.map((metric, index) => (
           <Card key={index} className="transition-all hover:shadow-lg">

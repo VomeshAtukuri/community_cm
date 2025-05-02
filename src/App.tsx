@@ -18,8 +18,8 @@ function App() {
 
   return (
     <>
-      <Tabs defaultValue="account" className="w-full">
-        <TabsList>
+      <Tabs defaultValue="activity" className="w-full">
+        <TabsList className="m-5">
           <TabsTrigger value="overview">
             Overview
           </TabsTrigger>
@@ -29,7 +29,7 @@ function App() {
           <TabsTrigger value="search" onClick={handleTabClick}>
             Search
           </TabsTrigger>
-          <TabsTrigger value="ai faqs" onClick={handleTabClick}>
+          <TabsTrigger value="ai faqs">
             AI FAQS
           </TabsTrigger>
           <TabsTrigger value="spam" onClick={handleTabClick}>

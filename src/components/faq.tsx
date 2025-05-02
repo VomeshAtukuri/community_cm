@@ -1,3 +1,3 @@
 export default function Faq() {
-    return <div>faq</div>
+    return <div className="mx-5">faq</div>
 }
