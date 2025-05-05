@@ -1,68 +1,68 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.tsx'
-
-createRoot(document.getElementById('community-monitor')!).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-)
-
-// import { StrictMode } from "react";
-// import { createRoot } from "react-dom/client";
+// import { StrictMode } from 'react'
+// import { createRoot } from 'react-dom/client'
 // import './index.css'
-// import App from "./App.tsx";
+// import App from './App.tsx'
 
-// const stylesUrl = "http://localhost:3000/assets/community-monitor.css";
+// createRoot(document.getElementById('community-monitor')!).render(
+//   <StrictMode>
+//     <App />
+//   </StrictMode>,
+// )
 
-// const Container = () => {
-//   return (
-//     <StrictMode>
-//       <App />
-//     </StrictMode>
-//   );
-// };
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import './index.css'
+import App from "./App.tsx";
 
-// export const containerName = "community-monitor";
-// let container = document.getElementById(containerName);
+const stylesUrl = "http://localhost:3000/assets/community-monitor.css";
 
-// if (!container) {
-//   container = document.createElement("div");
-//   container.id = containerName;
-//   document.body.appendChild(container);
-// }
+const Container = () => {
+  return (
+    <StrictMode>
+      <App />
+    </StrictMode>
+  );
+};
 
-// export const shadowRoot = container.attachShadow({ mode: "open" });
+export const containerName = "community-monitor";
+let container = document.getElementById(containerName);
 
-// const mountPoint = document.createElement("div");
-// shadowRoot.appendChild(mountPoint);
+if (!container) {
+  container = document.createElement("div");
+  container.id = containerName;
+  document.body.appendChild(container);
+}
 
-// export const dialogContainer = document.createElement("div");
-// shadowRoot.appendChild(dialogContainer);
+export const shadowRoot = container.attachShadow({ mode: "open" });
 
-// function mountApp() {
-//   fetch(stylesUrl)
-//     .then((response) => response.text())
-//     .then((css) => {
-//       const style = document.createElement("style");
-//       style.textContent = css;
-//       shadowRoot.appendChild(style);
-//     });
-//   createRoot(mountPoint).render(<Container />);
-// }
+const mountPoint = document.createElement("div");
+shadowRoot.appendChild(mountPoint);
 
-// mountApp();
+export const dialogContainer = document.createElement("div");
+shadowRoot.appendChild(dialogContainer);
 
-// class MyReactApp extends HTMLElement {
-//   connectedCallback() {
-//     const shadowRoot = this.attachShadow({ mode: "open" });
-//     const mountPoint = document.createElement("div");
-//     shadowRoot.appendChild(mountPoint);
-//     createRoot(mountPoint).render(<Container />);
-//   }
-// }
+function mountApp() {
+  fetch(stylesUrl)
+    .then((response) => response.text())
+    .then((css) => {
+      const style = document.createElement("style");
+      style.textContent = css;
+      shadowRoot.appendChild(style);
+    });
+  createRoot(mountPoint).render(<Container />);
+}
 
-// console.log("defining custom element");
-// customElements.define("my-react-app", MyReactApp);
+mountApp();
+
+class MyReactApp extends HTMLElement {
+  connectedCallback() {
+    const shadowRoot = this.attachShadow({ mode: "open" });
+    const mountPoint = document.createElement("div");
+    shadowRoot.appendChild(mountPoint);
+    createRoot(mountPoint).render(<Container />);
+  }
+}
+
+console.log("defining custom element");
+customElements.define("my-react-app", MyReactApp);
 

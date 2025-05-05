@@ -8,6 +8,7 @@ import {
 import { Button } from "@/components/ui/button";
 import OverviewPage from "./components/overview";
 import Faq from "./components/faq";
+import Spam from "./components/spam";
 function App() {
   const [dialogOpen, setDialogOpen] = useState(false);
 
@@ -18,7 +19,7 @@ function App() {
 
   return (
     <>
-      <Tabs defaultValue="activity" className="w-full">
+      <Tabs defaultValue="active" className="w-full">
         <TabsList className="m-5">
           <TabsTrigger value="overview">
             Overview
@@ -32,7 +33,7 @@ function App() {
           <TabsTrigger value="ai faqs">
             AI FAQS
           </TabsTrigger>
-          <TabsTrigger value="spam" onClick={handleTabClick}>
+          <TabsTrigger value="spam">
             Spam Analysis
           </TabsTrigger>
           <TabsTrigger value="settings" onClick={handleTabClick}>
@@ -41,6 +42,9 @@ function App() {
         </TabsList>
         <TabsContent value="overview">
           <OverviewPage />
+        </TabsContent>
+        <TabsContent value="spam" className="mx-5">
+          <Spam />
         </TabsContent>
         <TabsContent value="ai faqs">
           <Faq />
